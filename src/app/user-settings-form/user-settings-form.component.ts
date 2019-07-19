@@ -10,6 +10,7 @@ export class UserSettingsFormComponent implements OnInit {
 
   //userSettings : UserSettings = {
     originalUserSettings : UserSettings = {
+    /*
     name: 'Linus',
     emailOffers: true,
     interfaceStyle: 'dark',
@@ -17,6 +18,14 @@ export class UserSettingsFormComponent implements OnInit {
     notes: 'Here are some notes...',
     password: 'abc',
     testing: '2019-07-05'
+    */
+    name: null,
+    emailOffers: null,
+    interfaceStyle: null,
+    subscriptionType: null,
+    notes: null,
+    password: null,
+    testing: null    
   }
 
   userSettings : UserSettings = { ...this.originalUserSettings};
