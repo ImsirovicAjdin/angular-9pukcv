@@ -3,16 +3,21 @@
       <form #form="ngForm">
         <div class="form-group">
         <label for="name"></label>
-        <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name" required #classTest #propertyTest="ngModel" />
+        <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name" required #classTest #propertyTest="ngModel" #nameField="ngModel" />
+        <!--
         <h6 class="text-info">{{ classTest.className }}</h6>
-        <h6 class="text-danger">{{ propertyTest.className }}</h6><!-- won't show! -->
+        <h6 class="text-danger">{{ propertyTest.className }}</h6><!-- won't show! -- >
         <h6 class="text-danger">dirty: {{ propertyTest.dirty }}</h6>
         <h6 class="text-danger">pristine: {{ propertyTest.pristine }}</h6>
         <h6 class="text-danger">touched: {{ propertyTest.touched }}</h6>
         <h6 class="text-danger">untouched: {{ propertyTest.untouched }}</h6>
         <h6 class="text-danger">valid: {{ propertyTest.valid }}</h6>
         <h6 class="text-danger">invalid: {{ propertyTest.invalid }}</h6>
+        -->
+        <div [hidden]="nameField.valid || nameField.untouched" class="alert alert-danger p-1 text-small">
+          Enter a name
         </div>
+      </div>
 
       <div class="form-check form-group">
         <input class="form-check-input" type="checkbox" id="emailOffers" name="emailOffers" [(ngModel)]="userSettings.emailOffers">
