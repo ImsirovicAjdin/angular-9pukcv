@@ -1,9 +1,9 @@
 <div class="container">
       <h2>User settings</h2>
-      <form #form="ngForm">
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="form-group">
         <label for="name"></label>
-        <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name" required #classTest #propertyTest="ngModel" #nameField="ngModel" />
+        <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name" required #classTest #propertyTest="ngModel" #nameField="ngModel" (blur)="onBlur(nameField)" [class.field-error]="form.submitted && nameField.invalid" />
         <!--
         <h6 class="text-info">{{ classTest.className }}</h6>
         <h6 class="text-danger">{{ propertyTest.className }}</h6><!-- won't show! -- >
@@ -14,7 +14,10 @@
         <h6 class="text-danger">valid: {{ propertyTest.valid }}</h6>
         <h6 class="text-danger">invalid: {{ propertyTest.invalid }}</h6>
         -->
+        <!--
         <div [hidden]="nameField.valid || nameField.untouched" class="alert alert-danger p-1 text-small">
+        -->
+        <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger p-1 text-small">
           Enter a name
         </div>
       </div>
